@@ -1,34 +1,33 @@
-# DAYLY — Know what matters today
+# OMIGY
 
-Personal daily information platform.
+**Know what matters. Understand why. Decide together.**
+
+Autonomous internet intelligence platform: DISCOVER → UNDERSTAND → DEBATE → DECIDE → SHARE.
 
 ## Production
 
-- URL: https://dayly-nu.vercel.app
-- Vercel project: `dayly`
+- Vercel project: `dayly` (upgraded in place)
+- Supabase: shared with OpinionX auth + OMIGY tables
 
-## Live data
+## Features
 
-| Domain   | Provider              | Key required |
-|----------|-----------------------|--------------|
-| Weather  | Open-Meteo            | No           |
-| Currency | Frankfurter / ECB     | No           |
-| News     | GNews (optional)      | NEWS_API_KEY |
-| Jobs     | Optional              | JOBS_API_KEY |
+- Live trend aggregation from public RSS feeds
+- Clustering of related stories
+- Source-grounded explanations (optional LLM enrichment)
+- Public opinion polls with RLS
+- Opportunity radar (official links only)
+- Search, PWA, SEO, mobile-first UI
+- Hourly ingest cron on Vercel
 
 ## Environment
 
-```
-NEXT_PUBLIC_SITE_URL=https://dayly-nu.vercel.app
-NEWS_API_KEY=
-JOBS_API_KEY=
-NEXT_PUBLIC_ANALYTICS_ID=
-```
+See `.env.example`.
 
-## Google Search Console
+Required: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, NEXT_PUBLIC_SITE_URL
 
-1. Add property: https://dayly-nu.vercel.app
-2. Verify ownership
-3. Submit sitemap: https://dayly-nu.vercel.app/sitemap.xml
-4. Request homepage indexing
-5. Monitor Coverage and Core Web Vitals
+Optional: OPENAI_API_KEY, CRON_SECRET
+
+## Local
+
+npm install && npm run dev
+curl http://localhost:3000/api/ingest
