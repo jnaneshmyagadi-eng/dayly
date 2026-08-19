@@ -1,1 +1,2 @@
-OMIGY deploy trigger 2026-08-19
+OMIGY production redeploy trigger: 2026-08-19T08:22:00Z
+Full source on main. Deploy now.
