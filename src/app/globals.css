@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #07090f;
+  --bg-elevated: #0e121b;
+  --bg-card: #121826;
+  --border: #1e2638;
+  --text: #f1f5ff;
+  --text-muted: #8b95b0;
+  --accent: #5b8cff;
+  --accent-2: #22d3a6;
+  --accent-warm: #ff6b4a;
+  --warning: #f5a524;
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f8fc;
+    --bg-elevated: #ffffff;
+    --bg-card: #ffffff;
+    --border: #e2e8f4;
+    --text: #0b1220;
+    --text-muted: #5b657a;
+    --accent: #3b6ef5;
+    --accent-2: #0d9f7a;
+    --accent-warm: #e84e2f;
+  }
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark light; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: color-mix(in oklab, var(--accent) 35%, transparent); }
+.omigy-gradient {
+  background: radial-gradient(1200px 600px at 10% -10%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, color-mix(in oklab, var(--accent-2) 12%, transparent), transparent 55%),
+    var(--bg);
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--accent); color: white; }
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover {
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
+}
+.safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
